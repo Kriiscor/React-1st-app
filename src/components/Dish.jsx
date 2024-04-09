@@ -1,13 +1,13 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import "../assets/styles/dish.css";
-const Dish = ({ Name, Price, Picture }) => {
+const Dish = ({ name, price, picture }) => {
   return (
       <Card>
-        <Card.Img variant="top" src={Picture} />
+        <Card.Img variant="top" src={picture} />
         <Card.Body>
-          <Card.Text>{Name}</Card.Text>
-          <Card.Text>{Price}</Card.Text>
+          <Card.Text>{name}</Card.Text>
+          <Card.Text>{price}</Card.Text>
         </Card.Body>
       </Card>
     // <div className="dish">
