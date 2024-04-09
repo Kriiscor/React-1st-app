@@ -1,0 +1,7 @@
+main {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}

@@ -1,0 +1,9 @@
+.Dishes{
+    width: 400px;
+    display: inline-block;
+    margin-top: 50px;
+}
+
+img {
+    height: 250px;
+}
