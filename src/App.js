@@ -11,7 +11,7 @@ function App() {
       <Header />
       <main>
         <Routes>
-          <Route index element={<Home/>}></Route>
+          <Route index element={<Home/>}/>
         </Routes>
       </main>
       <Footer />
