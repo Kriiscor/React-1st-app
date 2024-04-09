@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 import "../assets/styles/header.css";
 const Header = () => {
   return (
@@ -16,9 +17,9 @@ const Header = () => {
               className="d-inline-block align-top"
             />{" "}
           </Navbar.Brand>
-          <Navbar.Text className="justify-content-end">
-            <a href="#home">Accueil</a>
-          </Navbar.Text>
+          <Nav>
+            <Nav.Link href="#home">Accueil</Nav.Link>
+          </Nav>
         </Container>
       </Navbar>
     </header>
