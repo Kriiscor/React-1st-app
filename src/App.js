@@ -12,6 +12,7 @@ function App() {
           <Route element={<Layout/>}>
             <Route index element={<Home/>}/>
             <Route path="plat/:id" element={<DishDetails />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
     </>
