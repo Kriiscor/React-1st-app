@@ -5,7 +5,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const NotFound = () => {
-  const { slug } = useParams();
   return (
     <Container>
       <Row>
