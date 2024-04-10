@@ -10,7 +10,7 @@ const Header = () => {
     <header>
       <Navbar className="bg-body-tertiary">
         <Container>
-          <NavLink to="/" className={"nav-brand"}>
+          <NavLink to="/" className={"navbar-brand"}>
             <img
               src={Logo}
               alt="Mexicain avec une guitare"
