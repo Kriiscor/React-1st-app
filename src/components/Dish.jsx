@@ -4,7 +4,7 @@ import "../assets/styles/dish.css";
 import { NavLink } from "react-router-dom";
 const Dish = ({ name, price, picture , slug}) => {
   return (
-    <NavLink to={`/Plat/${slug}`}>
+    <NavLink to={`/plat/${slug}`}>
       <Card>
         <Card.Img variant="top" src={picture} />
         <Card.Body>
