@@ -6,12 +6,14 @@ import Home from '../src/pages/Home.jsx'
 import Layout from "./components/Layout.jsx";
 import DishDetails from "./pages/DishDetails.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import About from "./pages/About.jsx";
 function App() {
   return (
     <>
         <Routes>
           <Route element={<Layout/>}>
             <Route index element={<Home/>}/>
+            <Route path="a-propos" element={<About/>}/>
             <Route path="plat/:slug" element={<DishDetails />} />
             <Route path="*" element={<NotFound />} />
           </Route>

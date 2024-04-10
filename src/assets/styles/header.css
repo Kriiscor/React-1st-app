@@ -2,3 +2,6 @@ header img {
   height: 50px;
   width: 50px;
 }
+header .nav-link{
+  text-decoration: underline;
+}
