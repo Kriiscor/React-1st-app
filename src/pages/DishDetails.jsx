@@ -7,7 +7,7 @@ import dishesData from "../datas/dishes.json";
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 
-function DishDetails() {
+const DishDetails = ({ addToCart }) => {
   const { slug } = useParams();
   const [dish, setDish] = useState(null);
   useEffect(() => {
@@ -39,7 +39,7 @@ function DishDetails() {
               <h2>{dish.name}</h2>
               <p>{dish.description}</p>
               <p>{dish.price}€</p>
-              <Button variant="primary">Commander</Button>
+              <Button variant="primary" onClick={() => addToCart(dish)}>Commander</Button>
             </Col>
             <Col></Col>
           </Row>

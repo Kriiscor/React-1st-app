@@ -5,7 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import "../assets/styles/header.css";
 import Logo from "../assets/images/Logo.webp";
 import { NavLink } from "react-router-dom";
-const Header = () => {
+const Header = ({cart}) => {
   return (
     <header>
       <Navbar className="bg-body-tertiary">
@@ -25,6 +25,9 @@ const Header = () => {
             </NavLink>
             <NavLink to="/a-propos" className={"nav-link"}>
               A propos
+            </NavLink>
+            <NavLink to="/panier" className={"nav-link"}>
+              Panier ({cart.length})
             </NavLink>
           </Nav>
         </Container>
