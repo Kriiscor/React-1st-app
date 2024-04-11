@@ -6,10 +6,11 @@ import Col from "react-bootstrap/Col";
 import dishesData from "../datas/dishes.json";
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-import {useCart} from '../context/CartContext'
+import { useCart } from "../context/CartContext";
+import { Helmet } from "react-helmet";
 
 const DishDetails = () => {
-  const { addToCart } = useCart(); 
+  const { addToCart } = useCart();
   const { slug } = useParams();
   const [dish, setDish] = useState(null);
   useEffect(() => {
@@ -17,7 +18,6 @@ const DishDetails = () => {
     if (selectedDish) {
       setDish(selectedDish);
     }
-
   }, [slug]);
   if (!dish) {
     return (
@@ -32,6 +32,9 @@ const DishDetails = () => {
   }
   return (
     <Container>
+      <Helmet>
+        <title>{dish ? dish.name : "Chargement en cours..."} - Plat</title>
+      </Helmet>
       <Row>
         <Col>
           <Row>

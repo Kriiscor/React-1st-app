@@ -1,11 +1,14 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Helmet } from "react-helmet";
 
 function About() {
   return (
     <Container>
+      <Helmet>
+        <title>A propos</title>
+      </Helmet>
       <Row>
         <h1>A propos</h1>
       </Row>

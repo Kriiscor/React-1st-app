@@ -9,7 +9,7 @@ import { CartContext } from "../context/CartContext";
 import useTotalQuantity from "../hooks/useTotalQuantity";
 const Header = () => {
   const { cart } = useContext(CartContext);
-  const totalQuantity = useTotalQuantity();
+  const TotalQuantity = useTotalQuantity();
   return (
     <header>
       <Navbar className="bg-body-tertiary">
@@ -31,7 +31,7 @@ const Header = () => {
               A propos
             </NavLink>
             <NavLink to="/panier" className={"nav-link"}>
-              Panier ({useTotalQuantity || 0 })
+              Panier ({TotalQuantity || 0})
             </NavLink>
           </Nav>
         </Container>

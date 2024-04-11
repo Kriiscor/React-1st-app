@@ -3,6 +3,7 @@ import { Container, Row, Col, Table, Button } from "react-bootstrap";
 import { CartContext } from "../context/CartContext";
 import useTotalQuantity from "../hooks/useTotalQuantity.jsx";
 import useTotalPrice from "../hooks/useTotalPrice.jsx";
+import { Helmet } from "react-helmet";
 
 const Cart = () => {
   const { cart } = useContext(CartContext);
@@ -10,6 +11,9 @@ const Cart = () => {
   const totalPrice = useTotalPrice();
   return (
     <Container>
+      <Helmet>
+        <title>Panier</title>
+      </Helmet>
       <Row>
         <Col md={12}>
           <h2>Votre Panier</h2>
