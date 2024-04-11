@@ -5,7 +5,12 @@ import Nav from "react-bootstrap/Nav";
 import "../assets/styles/header.css";
 import Logo from "../assets/images/Logo.webp";
 import { NavLink } from "react-router-dom";
-const Header = ({cart}) => {
+import { useCart } from "../context/CartContext";
+const Header = ({}) => {
+  const { cart } = useCart();
+  const getQuantity = () => {
+    return cart.reduce((total, dish) => total + dish.quantity, 0);
+  };
   return (
     <header>
       <Navbar className="bg-body-tertiary">
@@ -27,7 +32,7 @@ const Header = ({cart}) => {
               A propos
             </NavLink>
             <NavLink to="/panier" className={"nav-link"}>
-              Panier ({cart.length})
+              Panier ({getQuantity()})
             </NavLink>
           </Nav>
         </Container>

@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound.jsx";
 import About from "./pages/About.jsx";
 import Cart from "./pages/Cart.jsx";
 import { useState } from "react";
+import { CartProvider } from "./context/CartContext.jsx";
 function App() {
   const [cart, setCart] = useState([]);
   const addToCart = (dish) => {
@@ -16,18 +17,20 @@ function App() {
   };
   return (
     <>
-      <Routes>
-        <Route element={<Layout cart={cart} />}>
-          <Route index element={<Home />} />
-          <Route path="a-propos" element={<About />} />
-          <Route
-            path="plat/:slug"
-            element={<DishDetails addToCart={addToCart} />}
-          />
-          <Route path="panier" element={<Cart cart={cart} />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+      <CartProvider value={{ cart, addToCart }}>
+        <Routes>
+          <Route element={<Layout cart={cart} />}>
+            <Route index element={<Home />} />
+            <Route path="a-propos" element={<About />} />
+            <Route
+              path="plat/:slug"
+              element={<DishDetails addToCart={addToCart} />}
+            />
+            <Route path="panier" element={<Cart cart={cart} />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </CartProvider>
     </>
   );
 }

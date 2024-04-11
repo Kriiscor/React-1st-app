@@ -39,7 +39,9 @@ const DishDetails = ({ addToCart }) => {
               <h2>{dish.name}</h2>
               <p>{dish.description}</p>
               <p>{dish.price}€</p>
-              <Button variant="primary" onClick={() => addToCart(dish)}>Commander</Button>
+              <Button variant="primary" onClick={() => addToCart(dish)}>
+                Commander
+              </Button>
             </Col>
             <Col></Col>
           </Row>
@@ -47,5 +49,5 @@ const DishDetails = ({ addToCart }) => {
       </Row>
     </Container>
   );
-}
+};
 export default DishDetails;
