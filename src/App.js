@@ -17,12 +17,12 @@ function App() {
   return (
     <>
       <Routes>
-        <Route element={<Layout cart={cart} addToCart={addToCart} />}>
+        <Route element={<Layout cart={cart} />}>
           <Route index element={<Home />} />
           <Route path="a-propos" element={<About />} />
           <Route
             path="plat/:slug"
-            element={<DishDetails addToCart={addToCart} cart={cart} />}
+            element={<DishDetails addToCart={addToCart} />}
           />
           <Route path="panier" element={<Cart cart={cart} />} />
           <Route path="*" element={<NotFound />} />
