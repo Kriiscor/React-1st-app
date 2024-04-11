@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
 import { CartContext } from "../context/CartContext";
+import useTotalQuantity from "../hooks/useTotalQuantity.jsx";
+import useTotalPrice from "../hooks/useTotalPrice.jsx";
 
 const Cart = () => {
   const { cart } = useContext(CartContext);
+  const totalQuantity = useTotalQuantity();
+  const totalPrice = useTotalPrice();
   return (
     <Container>
       <Row>
@@ -15,22 +19,20 @@ const Cart = () => {
                 <th>Nom du produit</th>
                 <th>Prix</th>
                 <th>Quantité</th>
-                <th>Supprimer</th>
               </tr>
             </thead>
             <tbody>
-              {cart.map((cartDish ,  index) => (
+              {cart.map((cartDish, index) => (
                 <tr key={index}>
                   <td>{cartDish.name}</td>
                   <td>{cartDish.price}€</td>
                   <td>{cartDish.quantity}</td>
-                  <td>
-                    <Button variant="danger">Supprimer</Button>
-                  </td>
                 </tr>
               ))}
             </tbody>
           </Table>
+          <p className="text-end">{totalQuantity} éléments dans le panier</p>
+          <p className="text-end">Total: {totalPrice}€</p>
         </Col>
       </Row>
     </Container>

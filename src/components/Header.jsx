@@ -6,11 +6,10 @@ import "../assets/styles/header.css";
 import Logo from "../assets/images/Logo.webp";
 import { NavLink } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import useTotalQuantity from "../hooks/useTotalQuantity";
 const Header = () => {
   const { cart } = useContext(CartContext);
-  const getQuantity = () => {
-    return cart.reduce((total, dish) => total + dish.quantity, 0);
-  };
+  const totalQuantity = useTotalQuantity();
   return (
     <header>
       <Navbar className="bg-body-tertiary">
@@ -32,7 +31,7 @@ const Header = () => {
               A propos
             </NavLink>
             <NavLink to="/panier" className={"nav-link"}>
-              Panier ({getQuantity()})
+              Panier ({useTotalQuantity || 0 })
             </NavLink>
           </Nav>
         </Container>
