@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import "../assets/styles/header.css";
 import Logo from "../assets/images/Logo.webp";
 import { NavLink } from "react-router-dom";
-import { useCart } from "../context/CartContext";
+import { CartContext } from "../context/CartContext";
 const Header = () => {
-  const { cart } = useCart();
+  const { cart } = useContext(CartContext);
   const getQuantity = () => {
     return cart.reduce((total, dish) => total + dish.quantity, 0);
   };

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
-import { useCart } from "../context/CartContext";
+import { CartContext } from "../context/CartContext";
 
 const Cart = () => {
-    const { cart } = useCart();
+  const { cart } = useContext(CartContext);
   return (
     <Container>
       <Row>
@@ -19,11 +19,11 @@ const Cart = () => {
               </tr>
             </thead>
             <tbody>
-              {cart.map((dish, index) => (
+              {cart.map((cartDish ,  index) => (
                 <tr key={index}>
-                  <td>{dish.name}</td>
-                  <td>{dish.price}€</td>
-                  <td>{dish.quantity}</td>
+                  <td>{cartDish.name}</td>
+                  <td>{cartDish.price}€</td>
+                  <td>{cartDish.quantity}</td>
                   <td>
                     <Button variant="danger">Supprimer</Button>
                   </td>
