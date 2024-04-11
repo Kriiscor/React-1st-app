@@ -6,7 +6,7 @@ import "../assets/styles/header.css";
 import Logo from "../assets/images/Logo.webp";
 import { NavLink } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-const Header = ({}) => {
+const Header = () => {
   const { cart } = useCart();
   const getQuantity = () => {
     return cart.reduce((total, dish) => total + dish.quantity, 0);

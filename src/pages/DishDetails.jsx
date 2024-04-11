@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -6,8 +6,10 @@ import Col from "react-bootstrap/Col";
 import dishesData from "../datas/dishes.json";
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
+import {useCart} from '../context/CartContext'
 
-const DishDetails = ({ addToCart }) => {
+const DishDetails = () => {
+  const { addToCart } = useCart(); 
   const { slug } = useParams();
   const [dish, setDish] = useState(null);
   useEffect(() => {
@@ -15,6 +17,7 @@ const DishDetails = ({ addToCart }) => {
     if (selectedDish) {
       setDish(selectedDish);
     }
+
   }, [slug]);
   if (!dish) {
     return (
