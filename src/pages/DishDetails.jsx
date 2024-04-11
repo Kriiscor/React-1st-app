@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -6,8 +6,10 @@ import Col from "react-bootstrap/Col";
 import dishesData from "../datas/dishes.json";
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
+import {useCart} from '../context/CartContext'
 
-function DishDetails() {
+const DishDetails = () => {
+  const { addToCart } = useCart(); 
   const { slug } = useParams();
   const [dish, setDish] = useState(null);
   useEffect(() => {
@@ -15,6 +17,7 @@ function DishDetails() {
     if (selectedDish) {
       setDish(selectedDish);
     }
+
   }, [slug]);
   if (!dish) {
     return (
@@ -39,7 +42,9 @@ function DishDetails() {
               <h2>{dish.name}</h2>
               <p>{dish.description}</p>
               <p>{dish.price}€</p>
-              <Button variant="primary">Commander</Button>
+              <Button variant="primary" onClick={() => addToCart(dish)}>
+                Commander
+              </Button>
             </Col>
             <Col></Col>
           </Row>
@@ -47,5 +52,5 @@ function DishDetails() {
       </Row>
     </Container>
   );
-}
+};
 export default DishDetails;
